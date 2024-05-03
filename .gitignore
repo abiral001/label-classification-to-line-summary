@@ -1,2 +1,4 @@
 *.json
 *.pth
+__pycache__/
+wandb/
