@@ -2,3 +2,7 @@
 *.pth
 __pycache__/
 wandb/
+*.chk
+*.log
+*.model
+Meta-Llama-3-8B/
