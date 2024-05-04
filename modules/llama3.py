@@ -1,7 +1,4 @@
-from typing import List, Optional
-
-from argparse import ArgumentParser
-
+from typing import List
 from .llama import Dialog, Llama
 
 class Llama3:
@@ -44,14 +41,3 @@ class Llama3:
         for _, result in zip(dialogs, results):
             final_output.append(f'{result["generation"]["content"]}')
         return "\n".join(final_output)
-
-if __name__ == "__main__":
-    parser = ArgumentParser()
-    parser.add_argument("--ckpt_dir", type=str, required=True)
-    parser.add_argument("--tokenizer_path", type=str, required=True)
-    parser.add_argument("--temperature", type=float, default=0.6)
-    parser.add_argument("--top_p", type=float, default=0.9)
-    parser.add_argument("--max_seq_len", type=int, default=512)
-    parser.add_argument("--max_batch_size", type=int, default=4)
-    parser.add_argument("--max_gen_len", type=int, default=None)
-    args = parser.parse_args()
