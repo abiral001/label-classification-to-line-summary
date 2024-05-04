@@ -1,7 +1,8 @@
 from argparse import ArgumentParser
 import yaml
-
+import sys
 from modules.lcl import LabelClassificationLlama
+sys.path.append('.')
 
 if __name__=="__main__":
     parser = ArgumentParser()
@@ -15,5 +16,6 @@ if __name__=="__main__":
 
     lcl = LabelClassificationLlama(config)
     lcl.train(args.mode)
-
+    # text = "Random Text"
+    # print(lcl.run(text))
     

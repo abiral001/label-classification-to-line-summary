@@ -5,3 +5,5 @@ n_epochs: 50
 learning_rate: 0.0005
 dropout_prob: 0.2
 weight_decay: 0.01
+ckpt_dir: "./models/Meta-Llama-3-8B-Instruct/"
+tokenizer_path: "./models/Meta-Llama-3-8B-Instruct/tokenizer.model"
