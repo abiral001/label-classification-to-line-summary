@@ -6,3 +6,6 @@ wandb/
 *.log
 *.model
 Meta-Llama-3-8B*/
+models/
+ckpt/
+*.txt

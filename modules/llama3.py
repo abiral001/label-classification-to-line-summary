@@ -5,6 +5,12 @@ class Llama3:
     def __init__(self, ckpt_dir, tokenizer_path):
         self.ckpt_dir = ckpt_dir
         self.tokenizer_path = tokenizer_path
+        self.generator = Llama.build(
+            ckpt_dir=self.ckpt_dir,
+            tokenizer_path=self.tokenizer_path, 
+            max_seq_len=4096,
+            max_batch_size=4
+        )
 
     def generate(self, embedding_inps, label, length):
         self.embedding_inps = embedding_inps
@@ -13,12 +19,6 @@ class Llama3:
         return self.useLlama()
 
     def useLlama(self):
-        generator = Llama.build(
-            ckpt_dir=self.ckpt_dir,
-            tokenizer_path=self.tokenizer_path, 
-            max_seq_len=4096,
-            max_batch_size=4
-        )
         dialogs: List[Dialog] = [
             [
                 {
@@ -31,7 +31,7 @@ class Llama3:
                 }
             ],
         ]
-        results = generator.chat_completion(
+        results = self.generator.chat_completion(
             dialogs,
             max_gen_len=1024,
             temperature=0.6,
